@@ -6,9 +6,9 @@ import { colorsFor } from './domains';
   standalone: true,
   template: `
     <div class="counter" [class.flipped]="flipped()" [style.--c1]="colors()[0]" [style.--c2]="colors()[1]">
-      <button type="button" (click)="change(-1)" [disabled]="value() <= 0" aria-label="Decrease">−</button>
+      <button type="button" (pointerdown)="change(-1)" [disabled]="value() <= 0" aria-label="Decrease">−</button>
       <div class="value" [class.glow7]="value() === 7" [class.glow8]="value() === 8" aria-live="polite">{{ value() }}</div>
-      <button type="button" (click)="change(1)" [disabled]="value() >= 8" aria-label="Increase">+</button>
+      <button type="button" (pointerdown)="change(1)" [disabled]="value() >= 8" aria-label="Increase">+</button>
     </div>
   `,
   styles: `
@@ -49,7 +49,7 @@ import { colorsFor } from './domains';
     .glow8 {
       color: #fff;
       transform: scale(1.25);
-      text-shadow: 0 0 24px #fff, 0 0 56px var(--c1), 0 0 100px var(--c2), 0 0 160px var(--c2);
+      text-shadow: 0 0 24px #fff, 0 0 6px var(--c1), 0 0 12px var(--c2), 0 0 18px var(--c2);
     }
     @keyframes pulse {
       0%, 100% {

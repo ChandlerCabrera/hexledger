@@ -9,7 +9,7 @@ import { DomainSelectorComponent } from './domain-selector.component';
   imports: [BattlefieldPickerComponent, CounterComponent, DomainSelectorComponent],
   template: `
     <main [class.playing]="started()">
-      <app-battlefield-picker title="Left battlefield" [revealed]="started()" />
+      <app-battlefield-picker title="Left battlefield" [revealed]="started()" [domains]="opponentDomains()" />
       <div class="slot">
       <div class="center">
         <div class="half">
@@ -49,7 +49,7 @@ import { DomainSelectorComponent } from './domain-selector.component';
         }
       </div>
       </div>
-      <app-battlefield-picker title="Right battlefield" [revealed]="started()" />
+      <app-battlefield-picker title="Right battlefield" [revealed]="started()" [domains]="playerDomains()" />
     </main>
   `,
   styles: `
@@ -66,6 +66,15 @@ import { DomainSelectorComponent } from './domain-selector.component';
       main.playing {
         --side: min(calc((100dvh - 16px) / 1.396 + 16px), calc((100vw - 200px) / 2));
         grid-template-columns: var(--side) minmax(0, 1fr) var(--side);
+      }
+      .slot {
+        min-height: 380px;
+      }
+      .half:nth-child(1) {
+        padding-bottom: 36px;
+      }
+      .half:nth-child(2) {
+        padding-top: 36px;
       }
     }
     .slot {

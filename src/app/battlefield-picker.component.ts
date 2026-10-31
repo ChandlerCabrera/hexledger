@@ -1,5 +1,6 @@
 import { Component, ElementRef, computed, inject, input, signal } from '@angular/core';
 import { Battlefield, BattlefieldService } from './battlefield.service';
+import { colorsFor } from './domains';
 
 @Component({
   selector: 'app-battlefield-picker',
@@ -20,7 +21,14 @@ import { Battlefield, BattlefieldService } from './battlefield.service';
           <div class="rotor">
             <div class="flip" [class.facedown]="!revealed()">
               <div class="face front"><img [src]="bf.imageUrl" [alt]="revealed() ? bf.name : ''" /></div>
-              <div class="face back"><div class="back-art"></div></div>
+              <div class="face back">
+                <div
+                  class="back-art"
+                  [class.domain-colors]="domains().length > 0"
+                  [style.--c1]="colors()[0]"
+                  [style.--c2]="colors()[1]"
+                ></div>
+              </div>
             </div>
           </div>
         </button>
@@ -48,14 +56,16 @@ import { Battlefield, BattlefieldService } from './battlefield.service';
                 <img [src]="bf.imageUrl" alt="" loading="lazy" />
                 <span>{{ bf.name }}</span>
               </button>
-              <button
-                type="button"
-                class="fav"
-                [class.on]="isFavorite(bf)"
-                [attr.aria-pressed]="isFavorite(bf)"
-                [attr.aria-label]="(isFavorite(bf) ? 'Unfavorite ' : 'Favorite ') + bf.name"
-                (click)="toggleFavorite(bf)"
-              >{{ isFavorite(bf) ? '★' : '☆' }}</button>
+              @if (!bf.custom) {
+                <button
+                  type="button"
+                  class="fav"
+                  [class.on]="isFavorite(bf)"
+                  [attr.aria-pressed]="isFavorite(bf)"
+                  [attr.aria-label]="(isFavorite(bf) ? 'Unfavorite ' : 'Favorite ') + bf.name"
+                  (click)="toggleFavorite(bf)"
+                >{{ isFavorite(bf) ? '★' : '☆' }}</button>
+              }
               @if (bf.custom) {
                 <button type="button" class="remove" (click)="remove(bf)" aria-label="Remove upload">✕</button>
               }
@@ -65,7 +75,6 @@ import { Battlefield, BattlefieldService } from './battlefield.service';
 
         <details class="upload">
           <summary>Battlefield missing? Upload a screenshot</summary>
-          <input type="text" placeholder="Name (optional)" [value]="uploadName()" (input)="uploadName.set($any($event.target).value)" />
           <input type="file" accept="image/*" (change)="upload($event)" />
           @if (uploadError()) {
             <div class="error">{{ uploadError() }}</div>
@@ -165,13 +174,19 @@ import { Battlefield, BattlefieldService } from './battlefield.service';
       box-sizing: border-box;
     }
     .back-art {
+      --stripe1: #2a1f0e;
+      --stripe2: #1b1409;
       width: 100%;
       height: 100%;
       border: 1px solid #c8aa6e;
       border-radius: 3%;
       background:
         radial-gradient(circle at center, #c8aa6e 0 6%, transparent 6.5% 11%, #c8aa6e 11.5% 12.5%, transparent 13%),
-        repeating-linear-gradient(45deg, #2a1f0e 0 10px, #1b1409 10px 20px);
+        repeating-linear-gradient(45deg, var(--stripe1) 0 10px, var(--stripe2) 10px 20px);
+    }
+    .back-art.domain-colors {
+      --stripe1: color-mix(in srgb, var(--c1) 30%, #1b1409);
+      --stripe2: color-mix(in srgb, var(--c2) 30%, #1b1409);
     }
     .change {
       min-height: 48px;
@@ -373,10 +388,11 @@ export class BattlefieldPickerComponent {
 
   title = input.required<string>();
   revealed = input(true);
+  domains = input<string[]>([]);
+  protected colors = computed(() => colorsFor(this.domains()));
   selected = signal<Battlefield | null>(null);
   previewing = signal(false);
   query = signal('');
-  uploadName = signal('');
   uploadError = signal('');
   private readonly host = inject(ElementRef<HTMLElement>);
   private closing = false;
@@ -487,8 +503,7 @@ export class BattlefieldPickerComponent {
     if (!file) return;
     this.uploadError.set('');
     try {
-      this.selected.set(await this.svc.addCustom(file, this.uploadName()));
-      this.uploadName.set('');
+      this.selected.set(await this.svc.addCustom(file, ''));
     } catch (e) {
       this.uploadError.set((e as Error).message);
     }
