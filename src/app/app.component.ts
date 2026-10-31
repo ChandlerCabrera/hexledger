@@ -9,7 +9,7 @@ import { DomainSelectorComponent } from './domain-selector.component';
   imports: [BattlefieldPickerComponent, CounterComponent, DomainSelectorComponent],
   template: `
     <main [class.playing]="started()">
-      <app-battlefield-picker title="Left battlefield" [revealed]="started()" />
+      <app-battlefield-picker title="Left battlefield" [revealed]="started()" [domains]="opponentDomains()" />
       <div class="slot">
       <div class="center">
         <div class="half">
@@ -49,7 +49,7 @@ import { DomainSelectorComponent } from './domain-selector.component';
         }
       </div>
       </div>
-      <app-battlefield-picker title="Right battlefield" [revealed]="started()" />
+      <app-battlefield-picker title="Right battlefield" [revealed]="started()" [domains]="playerDomains()" />
     </main>
   `,
   styles: `
