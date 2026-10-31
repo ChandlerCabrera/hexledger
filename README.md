@@ -4,6 +4,8 @@ A two-player scorekeeper for the card game Riftbound. Pick a battlefield and two
 
 ## Running the app
 
+Angular 22 requires Node.js 22.22.3 or newer in the 22.x line, 24.15.0 or newer in the 24.x line, or 26.0.0 or newer.
+
 ```
 npm install
 npm start
@@ -45,8 +47,8 @@ Starting a new game clears the scores, the battlefield picks and the domain pick
 
 ## Data and storage
 
-- **Battlefield images and list:** the 76 battlefield images and `manifest.json` are stored in `public/battlefields/`, so the app works without contacting OpenRift. Domain icons are in `public/domains/`.
-- **Refreshing the battlefield list:** run `node scripts/download-battlefields.mjs`. It reads the OpenRift catalog (`https://openrift.app/api/v1/catalog`), re-downloads every battlefield image into `public/battlefields/`, and rewrites `manifest.json`. The image URL pattern is not an official API and may change.
+- **Battlefield images and list:** battlefield images, 320px list thumbnails and `manifest.json` are stored in `public/battlefields/`, so the app works without contacting OpenRift. List rows load small, lazy-loaded thumbnails; the original image is used for the selected card and preview. Domain icons are in `public/domains/`.
+- **Refreshing the battlefield list:** run `node scripts/download-battlefields.mjs`. It reads the OpenRift catalog (`https://openrift.app/api/v1/catalog`), re-downloads every battlefield image and generates its thumbnail in `public/battlefields/`, then rewrites `manifest.json`. The image URL pattern is not an official API and may change.
 - **Uploaded screenshots:** stored in your browser's local storage (`riftbound.customBattlefields`), scaled down to 800px. They stay on that device and browser.
 - **Favourites:** stored in session storage (`riftbound.favoriteBattlefields`), so they last for the browser tab only.
 
@@ -54,6 +56,6 @@ Starting a new game clears the scores, the battlefield picks and the domain pick
 
 - `npm start` runs the dev server with live reload.
 - `npm run build` builds the app.
-- `npm test` runs the unit tests with [Karma](https://karma-runner.github.io).
+- `npm test` runs the unit tests with Vitest through Angular's unit-test builder.
 
-Built with Angular 18 (standalone components and signals).
+Built with Angular 22 (standalone components and signals).

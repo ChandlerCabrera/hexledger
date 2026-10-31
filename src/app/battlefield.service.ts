@@ -4,6 +4,7 @@ export interface Battlefield {
   id: string;
   name: string;
   imageUrl: string;
+  thumbnailUrl?: string;
   custom?: boolean;
 }
 
@@ -50,8 +51,15 @@ export class BattlefieldService {
     try {
       const res = await fetch('battlefields/manifest.json');
       if (!res.ok) throw new Error(`HTTP ${res.status}`);
-      const items: { id: string; name: string; image: string }[] = await res.json();
-      this.catalog.set(items.map((i) => ({ id: i.id, name: i.name, imageUrl: i.image })));
+      const items: { id: string; name: string; image: string; thumbnail?: string }[] = await res.json();
+      this.catalog.set(
+        items.map((i) => ({
+          id: i.id,
+          name: i.name,
+          imageUrl: i.image,
+          thumbnailUrl: i.thumbnail,
+        })),
+      );
     } catch (e) {
       this.error.set(`Could not load battlefields (${(e as Error).message}).`);
     } finally {

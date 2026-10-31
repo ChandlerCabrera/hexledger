@@ -1,4 +1,4 @@
-import { Component, ElementRef, computed, inject, input, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, ElementRef, computed, inject, input, signal } from '@angular/core';
 import { Battlefield, BattlefieldService } from './battlefield.service';
 import { colorsFor } from './domains';
 
@@ -53,7 +53,7 @@ import { colorsFor } from './domains';
           @for (bf of filtered(); track bf.id) {
             <li>
               <button type="button" class="pick" (click)="selected.set(bf)">
-                <img [src]="bf.imageUrl" alt="" loading="lazy" />
+                <img [src]="bf.thumbnailUrl ?? bf.imageUrl" alt="" loading="lazy" decoding="async" />
                 <span>{{ bf.name }}</span>
               </button>
               @if (!bf.custom) {
@@ -91,12 +91,13 @@ import { colorsFor } from './domains';
       </div>
     }
   `,
+  changeDetection: ChangeDetectionStrategy.Eager,
   styles: `
     :host {
       display: block;
       min-width: 0;
       min-height: 0;
-      background: #0a1428;
+      background: var(--panel-bg, #0a1428);
     }
     .picker {
       display: flex;

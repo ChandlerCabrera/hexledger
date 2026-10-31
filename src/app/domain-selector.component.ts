@@ -1,4 +1,4 @@
-import { Component, input, model } from '@angular/core';
+import { ChangeDetectionStrategy, Component, input, model } from '@angular/core';
 import { DOMAINS } from './domains';
 
 @Component({
@@ -22,6 +22,7 @@ import { DOMAINS } from './domains';
       </div>
     </div>
   `,
+  changeDetection: ChangeDetectionStrategy.Eager,
   styles: `
     :host {
       display: block;

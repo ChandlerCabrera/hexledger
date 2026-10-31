@@ -1,9 +1,11 @@
 import { mkdir, writeFile } from 'node:fs/promises';
 import { join } from 'node:path';
+import sharp from 'sharp';
 
 const CATALOG_URL = 'https://openrift.app/api/v1/catalog';
 const MEDIA_URL = 'https://openrift.app/media/cards';
 const OUT_DIR = join('public', 'battlefields');
+const THUMBNAIL_DIR = join(OUT_DIR, 'thumbnails');
 
 // Prefer English, normal finish, standard art, non-signed printings
 const rank = (p) =>
@@ -26,6 +28,7 @@ for (const p of Object.values(data.printings)) {
 }
 
 await mkdir(OUT_DIR, { recursive: true });
+await mkdir(THUMBNAIL_DIR, { recursive: true });
 
 const manifest = [];
 for (const [cardId, card] of Object.entries(data.cards)) {
@@ -41,8 +44,11 @@ for (const [cardId, card] of Object.entries(data.cards)) {
     console.warn(`Failed ${card.name}: HTTP ${imgRes.status}`);
     continue;
   }
-  await writeFile(join(OUT_DIR, file), Buffer.from(await imgRes.arrayBuffer()));
-  manifest.push({ id: cardId, name: card.name, image: `battlefields/${file}` });
+  const image = Buffer.from(await imgRes.arrayBuffer());
+  await writeFile(join(OUT_DIR, file), image);
+  const thumbnail = `battlefields/thumbnails/${file}`;
+  await sharp(image).resize({ width: 320 }).webp({ quality: 70 }).toFile(join(THUMBNAIL_DIR, file));
+  manifest.push({ id: cardId, name: card.name, image: `battlefields/${file}`, thumbnail });
   console.log(`Saved ${file}`);
 }
 
