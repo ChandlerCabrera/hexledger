@@ -67,6 +67,15 @@ import { DomainSelectorComponent } from './domain-selector.component';
         --side: min(calc((100dvh - 16px) / 1.396 + 16px), calc((100vw - 200px) / 2));
         grid-template-columns: var(--side) minmax(0, 1fr) var(--side);
       }
+      .slot {
+        min-height: 380px;
+      }
+      .half:nth-child(1) {
+        padding-bottom: 36px;
+      }
+      .half:nth-child(2) {
+        padding-top: 36px;
+      }
     }
     .slot {
       position: relative;

@@ -6,7 +6,6 @@ import { DOMAINS } from './domains';
   standalone: true,
   template: `
     <div class="selector" [class.flipped]="flipped()">
-      <div class="title">Pick 2 domains</div>
       <div class="grid">
         @for (d of domains; track d.slug) {
           <button
