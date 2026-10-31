@@ -1,4 +1,4 @@
-import { Component, computed, input, model } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, input, model } from '@angular/core';
 import { colorsFor } from './domains';
 
 @Component({
@@ -11,6 +11,7 @@ import { colorsFor } from './domains';
       <button type="button" (pointerdown)="change(1)" [disabled]="value() >= 8" aria-label="Increase">+</button>
     </div>
   `,
+  changeDetection: ChangeDetectionStrategy.Eager,
   styles: `
     :host {
       display: block;

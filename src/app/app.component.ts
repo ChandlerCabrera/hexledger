@@ -1,11 +1,10 @@
-import { Component, computed, signal, viewChildren } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, signal, viewChildren } from '@angular/core';
 import { BattlefieldPickerComponent } from './battlefield-picker.component';
 import { CounterComponent } from './counter.component';
 import { DomainSelectorComponent } from './domain-selector.component';
 
 @Component({
   selector: 'app-root',
-  standalone: true,
   imports: [BattlefieldPickerComponent, CounterComponent, DomainSelectorComponent],
   template: `
     <main [class.playing]="started()">
@@ -52,6 +51,7 @@ import { DomainSelectorComponent } from './domain-selector.component';
       <app-battlefield-picker title="Right battlefield" [revealed]="started()" [domains]="playerDomains()" />
     </main>
   `,
+  changeDetection: ChangeDetectionStrategy.Eager,
   styles: `
     main {
       --center: max(240px, 22vw);
