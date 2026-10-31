@@ -1,0 +1,382 @@
+[
+  {
+    "id": "019d2617-c7d3-7a5d-b54c-4079ff09797c",
+    "name": "Abandoned Hall",
+    "image": "battlefields/abandoned-hall.webp"
+  },
+  {
+    "id": "019d3342-c814-7a41-a847-cf9eaf34a87c",
+    "name": "Altar of Blood",
+    "image": "battlefields/altar-of-blood.webp"
+  },
+  {
+    "id": "019cfc3b-0389-763e-ae82-d156cfc1d53e",
+    "name": "Altar to Unity",
+    "image": "battlefields/altar-to-unity.webp"
+  },
+  {
+    "id": "019d3342-cf5b-7b47-ba23-56b7ab97f2fe",
+    "name": "Amateur Recital",
+    "image": "battlefields/amateur-recital.webp"
+  },
+  {
+    "id": "019cfc3b-0389-79ec-a034-8e09d13dc303",
+    "name": "Aspirant’s Climb",
+    "image": "battlefields/aspirant-s-climb.webp"
+  },
+  {
+    "id": "019cfc3b-0389-7835-83b2-a98890a3d6e9",
+    "name": "Back-Alley Bar",
+    "image": "battlefields/back-alley-bar.webp"
+  },
+  {
+    "id": "01a100b5-8e19-72e8-9f97-2b0e66f344d6",
+    "name": "Bandle Scouts’ Academy",
+    "image": "battlefields/bandle-scouts-academy.webp"
+  },
+  {
+    "id": "019cfc3b-0389-7651-be77-5cfac3de7a47",
+    "name": "Bandle Tree",
+    "image": "battlefields/bandle-tree.webp"
+  },
+  {
+    "id": "019cfdaf-e86a-7327-81ea-e9471f172330",
+    "name": "Baron Pit",
+    "image": "battlefields/baron-pit.webp"
+  },
+  {
+    "id": "019d17a7-e971-7781-8e8f-f9f4048b23ff",
+    "name": "Black Flame Altar",
+    "image": "battlefields/black-flame-altar.webp"
+  },
+  {
+    "id": "01a100b6-b4ab-734b-9fb4-8a10dd0cbef8",
+    "name": "Black Market",
+    "image": "battlefields/black-market.webp"
+  },
+  {
+    "id": "01a11548-4986-7a98-ac02-d2406c0b65c0",
+    "name": "Black Rose Sanctum",
+    "image": "battlefields/black-rose-sanctum.webp"
+  },
+  {
+    "id": "019cfda1-fcaf-7cee-8265-faf9878a4706",
+    "name": "Brush",
+    "image": "battlefields/brush.webp"
+  },
+  {
+    "id": "01a0f3cb-8012-7647-85b3-c61009752a21",
+    "name": "Cosmic Vista",
+    "image": "battlefields/cosmic-vista.webp"
+  },
+  {
+    "id": "019f67cd-fa76-78f7-a507-9b735fb6b361",
+    "name": "Dragon Roost",
+    "image": "battlefields/dragon-roost.webp"
+  },
+  {
+    "id": "01a0f3cb-83f3-78f0-a612-0f86276b2292",
+    "name": "Durand Memorial",
+    "image": "battlefields/durand-memorial.webp"
+  },
+  {
+    "id": "019d0b5b-5cf1-7286-93ca-5029986f42f7",
+    "name": "Dusk Rose Lab",
+    "image": "battlefields/dusk-rose-lab.webp"
+  },
+  {
+    "id": "019cfc3b-038a-7cb9-ad14-e2294331712a",
+    "name": "Emperor’s Dais",
+    "image": "battlefields/emperor-s-dais.webp"
+  },
+  {
+    "id": "01a100c3-ba4f-76c3-bbd2-08e715cf51cc",
+    "name": "Firelights’ Hideout",
+    "image": "battlefields/firelights-hideout.webp"
+  },
+  {
+    "id": "019d0b5b-2c6e-7276-b1ae-b32f59af8cb1",
+    "name": "Forbidding Waste",
+    "image": "battlefields/forbidding-waste.webp"
+  },
+  {
+    "id": "019cfc3b-038a-7d87-899c-192b0804a8d9",
+    "name": "Forge of the Fluft",
+    "image": "battlefields/forge-of-the-fluft.webp"
+  },
+  {
+    "id": "019d0b5b-323f-7fa0-87cd-dd505c40ebd5",
+    "name": "Forgotten Library",
+    "image": "battlefields/forgotten-library.webp"
+  },
+  {
+    "id": "019cfc3b-038a-7a49-89c4-1a20c21f2c98",
+    "name": "Forgotten Monument",
+    "image": "battlefields/forgotten-monument.webp"
+  },
+  {
+    "id": "019cfc3b-0389-7392-9ecd-44e5cc421230",
+    "name": "Fortified Position",
+    "image": "battlefields/fortified-position.webp"
+  },
+  {
+    "id": "019d0b5b-4755-7abf-9979-ea77ce08e045",
+    "name": "Frozen Fortress",
+    "image": "battlefields/frozen-fortress.webp"
+  },
+  {
+    "id": "019d0b5b-53f0-78fe-9aeb-ef6568e8aea4",
+    "name": "Gardens of Becoming",
+    "image": "battlefields/gardens-of-becoming.webp"
+  },
+  {
+    "id": "019cfc3b-0389-7847-91c3-d8e38980a1e9",
+    "name": "Grove of the God-Willow",
+    "image": "battlefields/grove-of-the-god-willow.webp"
+  },
+  {
+    "id": "019cfc3b-038a-7bab-a9d5-9b7ef8ee5d4e",
+    "name": "Hall of Legends",
+    "image": "battlefields/hall-of-legends.webp"
+  },
+  {
+    "id": "019cfc3b-0389-7665-8130-e1ac1d7276b0",
+    "name": "Hallowed Tomb",
+    "image": "battlefields/hallowed-tomb.webp"
+  },
+  {
+    "id": "019f4603-b50e-752e-85ae-416e8823013b",
+    "name": "Heisho, Shell of the World",
+    "image": "battlefields/heisho-shell-of-the-world.webp"
+  },
+  {
+    "id": "01a100c3-c17b-7560-ac7c-bda9f3d99ba8",
+    "name": "Hunters’ Circle",
+    "image": "battlefields/hunters-circle.webp"
+  },
+  {
+    "id": "019f6d1b-b0ee-7865-9c99-b6168d08c847",
+    "name": "Kinkou Temple",
+    "image": "battlefields/kinkou-temple.webp"
+  },
+  {
+    "id": "019cfc3b-038a-7d98-9a7b-e06c69dd287b",
+    "name": "Marai Spire",
+    "image": "battlefields/marai-spire.webp"
+  },
+  {
+    "id": "019cfc3b-038a-7a5a-97a9-d651838e820e",
+    "name": "Minefield",
+    "image": "battlefields/minefield.webp"
+  },
+  {
+    "id": "019cfc3b-0389-77b9-8616-0ef17754bcf5",
+    "name": "Monastery of Hirana",
+    "image": "battlefields/monastery-of-hirana.webp"
+  },
+  {
+    "id": "019f67e7-57d5-74b9-a646-52585a55b019",
+    "name": "Mystic Vortex",
+    "image": "battlefields/mystic-vortex.webp"
+  },
+  {
+    "id": "019cfc3b-0389-785b-9797-747f9a008f53",
+    "name": "Navori Fighting Pit",
+    "image": "battlefields/navori-fighting-pit.webp"
+  },
+  {
+    "id": "019cfc3b-0389-7678-82df-b61d55d84f8d",
+    "name": "Obelisk of Power",
+    "image": "battlefields/obelisk-of-power.webp"
+  },
+  {
+    "id": "019cfc3b-038a-7bdb-8d86-064caac2d55e",
+    "name": "Ornn’s Forge",
+    "image": "battlefields/ornn-s-forge.webp"
+  },
+  {
+    "id": "01a0f3cb-97ce-7862-9a8a-0c3368551524",
+    "name": "Packed Amphitheater",
+    "image": "battlefields/packed-amphitheater.webp"
+  },
+  {
+    "id": "019f4633-d577-705b-911a-16489f76363b",
+    "name": "Piltovan Forge",
+    "image": "battlefields/piltovan-forge.webp"
+  },
+  {
+    "id": "019cfc3b-038a-7dca-85f0-862c7607dd55",
+    "name": "Power Nexus",
+    "image": "battlefields/power-nexus.webp"
+  },
+  {
+    "id": "019f67f1-3f79-7c33-96ed-793bc778e322",
+    "name": "Protective Sands",
+    "image": "battlefields/protective-sands.webp"
+  },
+  {
+    "id": "01a0f3cb-9ad2-7e03-b0c9-bf857a179790",
+    "name": "Rakelstake",
+    "image": "battlefields/rakelstake.webp"
+  },
+  {
+    "id": "019cfc3b-038a-7a6c-8b49-8fc9f83c138f",
+    "name": "Ravenbloom Conservatory",
+    "image": "battlefields/ravenbloom-conservatory.webp"
+  },
+  {
+    "id": "019cfc3b-0387-7ec8-a665-fd948c560167",
+    "name": "Reaver’s Row",
+    "image": "battlefields/reaver-s-row.webp"
+  },
+  {
+    "id": "019cfc3b-0389-786d-9c39-031603d1c799",
+    "name": "Reckoner’s Arena",
+    "image": "battlefields/reckoner-s-arena.webp"
+  },
+  {
+    "id": "019d0311-29ec-7824-be87-193929af2a87",
+    "name": "Ripper’s Bay",
+    "image": "battlefields/ripper-s-bay.webp"
+  },
+  {
+    "id": "019f4223-fb97-7d2e-8382-1023c3487b9f",
+    "name": "Risen Altar",
+    "image": "battlefields/risen-altar.webp"
+  },
+  {
+    "id": "019cfc3b-038a-7beb-b554-c5193ba5fce8",
+    "name": "Rockfall Path",
+    "image": "battlefields/rockfall-path.webp"
+  },
+  {
+    "id": "01a0f3cb-9dee-71cc-ab01-4af39ad8f6f3",
+    "name": "Ruined Monastery",
+    "image": "battlefields/ruined-monastery.webp"
+  },
+  {
+    "id": "019f4224-89f4-775e-8d27-202261f5b056",
+    "name": "Sandswept Tomb",
+    "image": "battlefields/sandswept-tomb.webp"
+  },
+  {
+    "id": "019cfc3b-038a-7ddc-bee4-b82b35066196",
+    "name": "Seat of Power",
+    "image": "battlefields/seat-of-power.webp"
+  },
+  {
+    "id": "019f7142-0e47-7adb-bc4a-a2a725deba71",
+    "name": "Shadow Temple",
+    "image": "battlefields/shadow-temple.webp"
+  },
+  {
+    "id": "019cfc3b-0389-7689-9d89-2e609ffc465d",
+    "name": "Sigil of the Storm",
+    "image": "battlefields/sigil-of-the-storm.webp"
+  },
+  {
+    "id": "019d1eea-2d1d-7dfc-8eaa-f7ed094f9baa",
+    "name": "Star Spring",
+    "image": "battlefields/star-spring.webp"
+  },
+  {
+    "id": "019cfc3b-0388-73e2-a3ce-bbbed2eba7da",
+    "name": "Startipped Peak",
+    "image": "battlefields/startipped-peak.webp"
+  },
+  {
+    "id": "019cfc3b-038a-7a7c-ab10-50082282d6a9",
+    "name": "Sunken Temple",
+    "image": "battlefields/sunken-temple.webp"
+  },
+  {
+    "id": "019cfc3b-0389-787d-9961-612939335032",
+    "name": "Targon’s Peak",
+    "image": "battlefields/targon-s-peak.webp"
+  },
+  {
+    "id": "019d0b58-1bf7-76af-bf0c-225fbd27dbee",
+    "name": "The Academy",
+    "image": "battlefields/the-academy.webp"
+  },
+  {
+    "id": "019cfc3b-0389-769a-9a0a-fce47ea2fe87",
+    "name": "The Arena’s Greatest",
+    "image": "battlefields/the-arena-s-greatest.webp"
+  },
+  {
+    "id": "019cfc3b-0389-7a0b-bbbf-c2d91ae7718a",
+    "name": "The Candlelit Sanctum",
+    "image": "battlefields/the-candlelit-sanctum.webp"
+  },
+  {
+    "id": "019cfc3b-0389-788c-8c44-7df27b822b3c",
+    "name": "The Dreaming Tree",
+    "image": "battlefields/the-dreaming-tree.webp"
+  },
+  {
+    "id": "019cfc3b-0389-76ab-aab0-d84709cac593",
+    "name": "The Grand Plaza",
+    "image": "battlefields/the-grand-plaza.webp"
+  },
+  {
+    "id": "019cfc3b-038a-7bfb-8322-d18dd19782f7",
+    "name": "The Papertree",
+    "image": "battlefields/the-papertree.webp"
+  },
+  {
+    "id": "019f6d35-5c6a-7e17-be8c-46f28b6fb42c",
+    "name": "Threshold of the Gray",
+    "image": "battlefields/threshold-of-the-gray.webp"
+  },
+  {
+    "id": "019d17a8-7756-7165-b5b8-87378d2e8f83",
+    "name": "Trapping Grounds",
+    "image": "battlefields/trapping-grounds.webp"
+  },
+  {
+    "id": "019cfc3b-038a-7dec-aba0-ce3ac359a0f6",
+    "name": "Treasure Hoard",
+    "image": "battlefields/treasure-hoard.webp"
+  },
+  {
+    "id": "019cfc3b-0389-7a1d-8129-f52d604c1cf4",
+    "name": "Trifarian War Camp",
+    "image": "battlefields/trifarian-war-camp.webp"
+  },
+  {
+    "id": "019d3341-3a09-73ff-8ea6-dfc443c06827",
+    "name": "Valley of Idols",
+    "image": "battlefields/valley-of-idols.webp"
+  },
+  {
+    "id": "019cfda1-ed91-796e-923e-615b6da7a839",
+    "name": "Vaults of Helia",
+    "image": "battlefields/vaults-of-helia.webp"
+  },
+  {
+    "id": "019cfc3b-038a-7a8d-bf56-e7bfef73ba1a",
+    "name": "Veiled Temple",
+    "image": "battlefields/veiled-temple.webp"
+  },
+  {
+    "id": "019cfc3b-0389-789c-9aa3-4f60193a194a",
+    "name": "Vilemaw’s Lair",
+    "image": "battlefields/vilemaw-s-lair.webp"
+  },
+  {
+    "id": "019cfc3b-0389-76be-be2b-f8ae3a225735",
+    "name": "Void Gate",
+    "image": "battlefields/void-gate.webp"
+  },
+  {
+    "id": "019cfc3b-0389-7a2f-bf96-d5afc1692dd5",
+    "name": "Windswept Hillock",
+    "image": "battlefields/windswept-hillock.webp"
+  },
+  {
+    "id": "019cfc3b-0389-78ac-ac53-4f077c9d4224",
+    "name": "Zaun Warrens",
+    "image": "battlefields/zaun-warrens.webp"
+  }
+]
