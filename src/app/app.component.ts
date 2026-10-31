@@ -2,12 +2,16 @@ import { ChangeDetectionStrategy, Component, computed, signal, viewChildren } fr
 import { BattlefieldPickerComponent } from './battlefield-picker.component';
 import { CounterComponent } from './counter.component';
 import { DomainSelectorComponent } from './domain-selector.component';
+import { colorsFor } from './domains';
 
 @Component({
   selector: 'app-root',
   imports: [BattlefieldPickerComponent, CounterComponent, DomainSelectorComponent],
   template: `
-    <main [class.playing]="started()">
+    <main [class.playing]="started()" [class.won]="winner()">
+      @if (winner(); as w) {
+        <div class="win-bg" [class.top]="w.side === 'top'" [style.--c1]="w.colors[0]" [style.--c2]="w.colors[1]"></div>
+      }
       <app-battlefield-picker title="Left battlefield" [revealed]="started()" [domains]="opponentDomains()" />
       <div class="slot">
       <div class="center">
@@ -215,7 +219,51 @@ import { DomainSelectorComponent } from './domain-selector.component';
       opacity: 0.4;
       cursor: not-allowed;
     }
+    main {
+      position: relative;
+      isolation: isolate;
+    }
+    main.won {
+      --panel-bg: transparent;
+    }
+    main.won .center {
+      background: transparent;
+    }
+    .win-bg {
+      --from: inset(75% 0 25% 0);
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      pointer-events: none;
+      background: linear-gradient(45deg, var(--c1), var(--c2));
+      animation: win-spread 1.2s ease-out forwards;
+    }
+    .win-bg.top {
+      --from: inset(25% 0 75% 0);
+      background: linear-gradient(225deg, var(--c1), var(--c2));
+    }
+    /* Portrait turns the center panel 90deg: the player's side is the left edge, the opponent's the right */
+    @media (orientation: portrait) {
+      .win-bg {
+        --from: inset(0 75% 0 25%);
+        background: linear-gradient(135deg, var(--c1), var(--c2));
+      }
+      .win-bg.top {
+        --from: inset(0 25% 0 75%);
+        background: linear-gradient(315deg, var(--c1), var(--c2));
+      }
+    }
+    /* The gradient grows outward from the winner's score counter */
+    @keyframes win-spread {
+      from { clip-path: var(--from); opacity: 0.4; }
+      to { clip-path: inset(0); opacity: 0.85; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .win-bg { animation-duration: 0.01s; }
+    }
     .half {
+      position: relative;
+      z-index: 1;
       flex: 1 1 0;
       display: flex;
       align-items: center;
@@ -235,6 +283,12 @@ export class AppComponent {
 
   ready = computed(() => this.pickers().length === 2 && this.pickers().every((p) => p.selected() !== null));
   gameOver = computed(() => this.opponentScore() === 8 || this.playerScore() === 8);
+
+  winner = computed(() => {
+    if (this.playerScore() === 8) return { side: 'bottom', colors: colorsFor(this.playerDomains()) };
+    if (this.opponentScore() === 8) return { side: 'top', colors: colorsFor(this.opponentDomains()) };
+    return null;
+  });
 
   // During play the first click arms the button and a second within 4s resets; once someone hits 8 it resets immediately
   newGameClick(): void {

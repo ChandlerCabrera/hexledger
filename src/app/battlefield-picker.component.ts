@@ -97,7 +97,7 @@ import { colorsFor } from './domains';
       display: block;
       min-width: 0;
       min-height: 0;
-      background: #0a1428;
+      background: var(--panel-bg, #0a1428);
     }
     .picker {
       display: flex;
