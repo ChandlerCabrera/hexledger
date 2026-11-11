@@ -8,11 +8,13 @@ import { colorsFor } from './domains';
   selector: 'app-root',
   imports: [BattlefieldPickerComponent, CounterComponent, DomainSelectorComponent],
   template: `
-    <main [class.playing]="started()" [class.won]="winner()">
+    <main [class.playing]="started()" [class.won]="winner()" [class.simple]="!battlefields()">
       @if (winner(); as w) {
         <div class="win-bg" [class.top]="w.side === 'top'" [style.--c1]="w.colors[0]" [style.--c2]="w.colors[1]"></div>
       }
-      <app-battlefield-picker title="Left battlefield" [revealed]="started()" [domains]="opponentDomains()" />
+      @if (battlefields()) {
+        <app-battlefield-picker title="Left battlefield" [revealed]="started()" [domains]="opponentDomains()" />
+      }
       <div class="slot">
       <div class="center">
         <div class="half">
@@ -52,7 +54,26 @@ import { colorsFor } from './domains';
         }
       </div>
       </div>
-      <app-battlefield-picker title="Right battlefield" [revealed]="started()" [domains]="playerDomains()" />
+      @if (battlefields()) {
+        <app-battlefield-picker title="Right battlefield" [revealed]="started()" [domains]="playerDomains()" />
+      }
+      @if (!started()) {
+        <button
+          type="button"
+          class="bf-toggle"
+          [class.on]="battlefields()"
+          [attr.aria-pressed]="battlefields()"
+          [attr.aria-label]="battlefields() ? 'Disable battlefields' : 'Enable battlefields'"
+          [title]="battlefields() ? 'Disable battlefields' : 'Enable battlefields'"
+          (click)="toggleBattlefields()"
+        >
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M3 6l6-2 6 2 6-2v14l-6 2-6-2-6 2z" />
+            <path d="M9 4v14" />
+            <path d="M15 6v14" />
+          </svg>
+        </button>
+      }
     </main>
   `,
   changeDetection: ChangeDetectionStrategy.Eager,
@@ -261,6 +282,62 @@ import { colorsFor } from './domains';
     @media (prefers-reduced-motion: reduce) {
       .win-bg { animation-duration: 0.01s; }
     }
+    .bf-toggle {
+      position: absolute;
+      bottom: 8px;
+      left: 8px;
+      z-index: 6;
+      width: 2rem;
+      height: 2rem;
+      padding: 0.35rem;
+      border: 1px solid #463714;
+      border-radius: 50%;
+      background: #1e2328;
+      color: #c8aa6e;
+      opacity: 0.55;
+      cursor: pointer;
+    }
+    .bf-toggle svg {
+      width: 100%;
+      height: 100%;
+    }
+    .bf-toggle:hover,
+    .bf-toggle.on {
+      opacity: 1;
+    }
+    .bf-toggle.on {
+      border-color: #c8aa6e;
+    }
+    /* Simple mode: one top/bottom split in every orientation, no rotation */
+    main.simple,
+    main.simple.playing {
+      grid-template-columns: minmax(0, 1fr);
+      grid-template-rows: minmax(0, 1fr);
+    }
+    main.simple .slot {
+      min-height: 0;
+    }
+    main.simple .center {
+      position: relative;
+      width: auto;
+      height: 100%;
+      transform: none;
+      border: 0;
+    }
+    main.simple .half:nth-child(1) {
+      padding: 4px 8px 36px;
+    }
+    main.simple .half:nth-child(2) {
+      padding: 36px 8px 4px;
+    }
+    main.simple .win-bg {
+      --from: inset(75% 0 25% 0);
+      background: linear-gradient(45deg, var(--c1), var(--c2));
+    }
+    main.simple .win-bg.top {
+      --from: inset(25% 0 75% 0);
+      background: linear-gradient(225deg, var(--c1), var(--c2));
+    }
     .half {
       position: relative;
       z-index: 1;
@@ -281,7 +358,17 @@ export class AppComponent {
   private confirmTimer?: ReturnType<typeof setTimeout>;
   private readonly pickers = viewChildren(BattlefieldPickerComponent);
 
-  ready = computed(() => this.pickers().length === 2 && this.pickers().every((p) => p.selected() !== null));
+  battlefields = signal(localStorage.getItem('battlefields') === '1');
+
+  ready = computed(
+    () => !this.battlefields() || (this.pickers().length === 2 && this.pickers().every((p) => p.selected() !== null)),
+  );
+
+  toggleBattlefields(): void {
+    const on = !this.battlefields();
+    this.battlefields.set(on);
+    localStorage.setItem('battlefields', on ? '1' : '0');
+  }
   gameOver = computed(() => this.opponentScore() === 8 || this.playerScore() === 8);
 
   winner = computed(() => {
